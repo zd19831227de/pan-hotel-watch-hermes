@@ -1,0 +1,23 @@
+profiles:
+  jingli-ai:
+    app_id: "cli_replace_with_jingli_app_id"
+    app_secret: "replace_with_jingli_app_secret"
+    group_rules:
+      - chat_id: "oc_replace_with_jingli_chat_id"
+        policy: "allowlist"
+        allowed_users:
+          - "ou_replace_with_jingli_user_open_id"
+    require_mention: true
+    display_name: "静里AI管家"
+    soul: "config/profiles/jingli-ai/SOUL.md"
+
+  manxin-ai:
+    app_id: "cli_replace_with_manxin_app_id"
+    app_secret: "replace_with_manxin_app_secret"
+    group_rules:
+      - chat_id: "oc_replace_with_manxin_chat_id"
+        policy: "open"
+        allowed_users: []
+    require_mention: false
+    display_name: "曼馨AI管家"
+    soul: "config/profiles/manxin-ai/SOUL.md"

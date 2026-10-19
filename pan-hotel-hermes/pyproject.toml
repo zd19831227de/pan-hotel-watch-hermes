@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+# Distribution name; the import package stays ``pan_hotel_mcp`` (plus the
+# sibling first-party packages ``client`` and ``router`` that pan_hotel_mcp
+# imports at runtime).
+name = "pan-hotel-mcp"
+version = "0.1.0"
+description = "Pan Hotel Watch Hermes MCP server (pan_hotel_mcp + client + router)"
+requires-python = ">=3.11"
+# Single source of truth for Hermes/MCP runtime dependencies.
+# Formerly pan-hotel-hermes/requirements.txt; pyyaml is declared because the
+# Feishu profile scripts (feishu_profiles.py) parse YAML manifests at runtime.
+dependencies = [
+    "httpx>=0.27.0",
+    "matplotlib>=3.8.0",
+    "pillow>=10.0.0",
+    "mcp>=1.2.0",
+    "pydantic>=2.0.0",
+    "pyyaml>=6.0",
+    # 2026-10-08 价格办公软件技能：send_operator_document 渲染 xlsx/docx/pptx。
+    "openpyxl>=3.1.0",
+    "python-docx>=1.1.0",
+    "python-pptx>=1.0.0",
+    "reportlab>=4.0.0",
+]
+
+[tool.setuptools.packages.find]
+# Flat layout: pyproject.toml lives next to the first-party packages.
+# pan_hotel_mcp.server imports from ``client.*`` and ``router.*`` at runtime,
+# so all three first-party trees must remain importable after install.
+include = ["pan_hotel_mcp*", "client*", "router*"]

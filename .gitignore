@@ -1,0 +1,37 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.env
+.env.bak*
+.runtime/
+output/
+pan_hotel_watch.db
+pan_hotel_watch.db-shm
+pan_hotel_watch.db-wal
+backend/pan_hotel.db
+node_modules/
+dist/
+build/
+*.log
+~$*.xlsx
+pan-hotel-hermes/config/feishu-profiles.yaml
+# 本机 Hermes 配置实例（含本机绝对路径与运行期参数），不入库；模板见 hermes.config.yaml.example
+pan-hotel-hermes/config/hermes.config.local.yaml
+
+# 真实推送卡片/控制台截图（含生产群数据），不入库；可复现的 HTML 预览页除外
+docs/preview/*.png
+
+# 本地探测/验证草稿（含 browser_sessions 备份与证据 JSON，不入库
+tmp/
+
+# Agent/IDE session artifacts (ZCode, like .claude/)
+.zcode/
+
+# Playwright CLI session artifacts
+.playwright-cli/
+
+# 群资料归档附件等运行期数据（永久保留但不入库）
+data/

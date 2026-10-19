@@ -1,0 +1,35 @@
+mcp_servers:
+  pan-hotel-watch:
+    command: python
+    args: ["-m", "pan_hotel_mcp"]
+    # 改成你 clone 本仓库的路径
+    cwd: C:/path/to/pan-hotel-watch-hermes
+    env:
+      WATCH_API_BASE_URL: http://127.0.0.1:8000
+      PYTHONPATH: C:/path/to/pan-hotel-watch-hermes
+
+# 通用能力（可选）：联网搜索。任选其一 API key，或使用 Nous Tool Gateway。
+# EBK/竞品价仍必须走上方 pan-hotel-watch MCP，禁止用搜索结果编造酒店数字。
+# env 示例（放到 Hermes 进程环境，而不是写进仓库密钥文件）：
+#   TAVILY_API_KEY / EXA_API_KEY / FIRECRAWL_API_KEY / PARALLEL_API_KEY
+#
+# 可选独立浏览器（browser_*）：必须使用与 OTA 隔离的 user-data-dir，
+# 禁止指向仓库 .runtime/browser-state/ctrip-ebooking/** 或竞品已登录 profile。
+
+feishu:
+  connection_mode: websocket
+
+group_sessions_per_agent: true
+
+plugins:
+  enabled:
+    - pan-hotel-feishu-session
+
+# Hermes 静态 UI 使用简体中文；Agent 飞书回复规范见 config/hermes.SOUL.md 与 skills/pan-hotel-watch/SKILL.md
+display:
+  language: zh
+  tool_progress: off
+
+# Skill：复制 skills/pan-hotel-watch/SKILL.md 到 Hermes skills 目录
+# SOUL：复制 config/hermes.SOUL.md 到 %LOCALAPPDATA%\hermes\SOUL.md
+# 多店 profile：同步 config/profiles/<name>/SOUL.md 到对应 Hermes profile

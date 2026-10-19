@@ -1,0 +1,124 @@
+{
+  "_comment": "页面健康与 selector 配置（V7 Step 1）。expected_terms 为页面结构校验词表：携程数据中心页面改版后，改这里的词并保存即可热更新生效（按 mtime 检测，无需重启/改代码）；未配置的 target 回落 backend/app/domain/browser/ctrip_ebooking_parsers.py 内置词表。consecutive_failures_to_alert=连续失败 N 次告警；alert_repeat_seconds=同一问题告警去重窗口。可用环境变量 PAGE_HEALTH_CONFIG_PATH 覆盖本文件路径。",
+  "defaults": {
+    "consecutive_failures_to_alert": 3,
+    "alert_repeat_seconds": 3600
+  },
+  "targets": {
+    "ctrip:dataset:business_outline": {
+      "expected_terms": [
+        "实时预订订单",
+        "实时在店间夜",
+        "昨日离店销售额",
+        "成交率",
+        "平均卖价"
+      ]
+    },
+    "ctrip:dataset:beneficial_data": {
+      "expected_terms": [
+        "预订订单数",
+        "间夜量",
+        "销售额",
+        "上周同期",
+        "上周同比"
+      ]
+    },
+    "ctrip:dataset:flow_data": {
+      "expected_terms": [
+        "访客量",
+        "转化率",
+        "竞争圈平均",
+        "渠道"
+      ]
+    },
+    "ctrip:dataset:loss_analysis": {
+      "expected_terms": [
+        "流失订单量",
+        "流失间夜量",
+        "流失订单金额",
+        "发现同行",
+        "发现同街"
+      ]
+    },
+    "ctrip:dataset:competition_list": {
+      "expected_terms": [
+        "我的酒店",
+        "预订订单量排名",
+        "预订销售额排名",
+        "在店间夜排名",
+        "出租率排名"
+      ]
+    },
+    "ctrip:dataset:competition_profile": {
+      "expected_terms": [
+        "经营对比",
+        "我的酒店",
+        "竞争圈平均",
+        "竞争圈排名",
+        "携程APP转化率"
+      ]
+    },
+    "ctrip:dataset:promotion_effect": {
+      "expected_terms": [
+        "促销中心",
+        "促销效果",
+        "参加促销",
+        "含促销间夜",
+        "竞争圈平均"
+      ]
+    },
+    "ctrip:dataset:promotion_registered": {
+      "expected_terms": [
+        "促销中心",
+        "已参加促销",
+        "活动",
+        "报名",
+        "促销"
+      ]
+    },
+    "ctrip:dataset:ad_pyramid": {
+      "expected_terms": [
+        "数据概览",
+        "流量",
+        "花费",
+        "收益",
+        "效果",
+        "广告投产比"
+      ]
+    },
+    "meituan:data_center_home": {},
+    "meituan:data_center_trade": {},
+    "meituan:data_center_traffic": {},
+    "meituan:data_center_service": {},
+    "meituan:pricing:calendar": {
+      "submit_button_labels": [
+        "提交并前往日历页",
+        "提交并继续修改"
+      ],
+      "non_submit_button_labels": [
+        "预览修改结果",
+        "卖价(佣金率)",
+        "取消选择",
+        "反选",
+        "全选",
+        "展开全部房型"
+      ],
+      "preferred_submit_label": "提交并继续修改",
+      "preview_button_label": "预览修改结果"
+    },
+    "fliggy:pricing:calendar": {
+      "submit_button_labels": [
+        "提交并继续",
+        "提交并查看"
+      ],
+      "non_submit_button_labels": [
+        "取 消",
+        "取消",
+        "增加",
+        "反选",
+        "全部展开"
+      ],
+      "preferred_submit_label": "提交并继续"
+    }
+  }
+}

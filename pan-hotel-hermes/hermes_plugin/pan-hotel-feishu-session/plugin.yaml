@@ -1,0 +1,9 @@
+name: pan-hotel-feishu-session
+version: "1.0.2"
+description: "飞书会话统一卡片化：注入 chat_id、MCP 工具自动发卡、经营摘要卡、文字回复由机器人在当前群发卡。"
+hooks:
+  - pre_gateway_dispatch
+  - pre_tool_call
+  - pre_llm_call
+  - transform_tool_result
+  - transform_llm_output

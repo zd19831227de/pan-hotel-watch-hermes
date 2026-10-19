@@ -1,0 +1,2 @@
+"""Pan Hotel Watch backend."""
+
